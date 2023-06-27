@@ -1,0 +1,26 @@
+title: Example quiz
+questions:
+  - type: landing
+  - type: mcq
+    prompt: This is a multiple-choice question
+    answers: [A, B, C, D]
+  - type: type
+    prompt: This is a basic short answer question
+  - type: type
+    prompt: The answer to this short answer question is a percentage
+    answer_form: $1%
+    answer_type: number
+    answer_range: [0, 100]
+  - type: draw
+    prompt: Draw on the diagram
+    image: random.png
+  - type: speed
+    prompt: A speed quiz is like multiple-choice, but starts a two second countdown once the first answer is submitted to each question.
+    answers: [Option 1, Option 2, Option 3]
+  - type: speed
+    prompt: This will automatically continue until the last speed question in a row is completed.
+    answers: [Option 1, Option 2, Option 3]
+  - type: speed
+    prompt: The answers to the speed questions are reviewed in a review stage following the final question.
+    answers: [Option 1, Option 2, Option 3]
+  - type: speed_review

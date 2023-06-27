@@ -1,5 +1,4 @@
 .idea
-data
 venv
 __pycache__
 compose.override.yaml
