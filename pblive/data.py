@@ -25,24 +25,48 @@ admins = {}
 
 
 class Session:
-    def __init__(self, name=None, title=None, questions=None, colours=None, question_num=0):
+    def __init__(
+        self, name=None, title=None, questions=None, colours=None, question_num=0
+    ):
         if questions is None:
             questions = []
         if colours is None:
             colours = [
-                (1, '#f44336'), (2, '#e91e63'), (3, '#9c27b0'), (4, '#673ab7'), (5, '#3f51b5'), (6, '#2196f3'),
-                (7, '#03a9f4'), (8, '#00bcd4'), (9, '#009688'), (10, '#4caf50'), (11, '#8bc34a'), (12, '#cddc39'),
-                (13, '#ffeb3b'), (14, '#ffc107'), (15, '#ff9800'), (16, '#ff5722'), (17, '#795548'), (18, '#9e9e9e'),
-                (19, '#607d8b'), (20, '#f44336'), (21, '#e91e63'), (22, '#9c27b0'), (23, '#673ab7'), (24, '#3f51b5'), (25, '#2196f3'),
-                (26, '#03a9f4'), (27, '#00bcd4'), (28, '#009688'), (29, '#4caf50'), (30, '#8bc34a'), (31, '#cddc39'),
-                (32, '#ffeb3b'), (33, '#ffc107'), (34, '#ff9800'), (35, '#ff5722'), (36, '#795548'), (37, '#9e9e9e'),
-                (38, '#607d8b'), (39, '#f44336'), (40, '#e91e63'), (41, '#9c27b0'), (42, '#673ab7'), (43, '#3f51b5'), (44, '#2196f3'),
-                (45, '#03a9f4'), (46, '#00bcd4'), (47, '#009688'), (48, '#4caf50'), (49, '#8bc34a'), (50, '#cddc39'),
-                (51, '#ffeb3b'), (52, '#ffc107'), (53, '#ff9800'), (54, '#ff5722'), (55, '#795548'), (56, '#9e9e9e'),
-                (57, '#607d8b'), (58, '#f44336'), (59, '#e91e63'), (60, '#9c27b0'), (61, '#673ab7'), (62, '#3f51b5'), (63, '#2196f3'),
-                (64, '#03a9f4'), (65, '#00bcd4'), (66, '#009688'), (67, '#4caf50'), (68, '#8bc34a'), (69, '#cddc39'),
-                (70, '#ffeb3b'), (71, '#ffc107'), (72, '#ff9800'), (73, '#ff5722'), (74, '#795548'), (75, '#9e9e9e'),
-                (76, '#607d8b'),
+                (1,  "#00BAFA"),
+                (2,  "#980AFA"),
+                (3,  "#6DFA96"),
+                (4,  "#FA8000"),
+                (5,  "#DAFA02"),
+                (6,  "#0EFA00"),
+                (7,  "#0AFAF4"),
+                (8,  "#FAE56D"),
+                (9,  "#FA0090"),
+                (10, "#FA5B02"),
+                (11, "#FAC113"),
+                (12, "#75FA7B"),
+                (13, "#FA6311"),
+                (14, "#6681FA"),
+                (15, "#FA4D97"),
+                (16, "#ff0000"),
+                (17, "#f9c0e0"),
+                (18, "#3609c4"),
+                (19, "#c12f2c"),
+                (20, "#e28d38"),
+                (21, "#00ff00"),
+                (22, "#00b300"),
+                (23, "#1ac0c6"),
+                (24, "#fdfa66"),
+                (25, "#fb7756"),
+                (26, "#0000ff"),
+                (27, "#bfcfff"),
+                (28, "#809fff"),
+                (29, "#008f7a"),
+                (30, "#fbeaff"),
+                (31, "#00c9a7"),
+                (32, "#b0a8b9"),
+                (33, "#4e8397"),
+                (34, "#4ffbdf"),
+                (35, "#926d00"),
             ]
 
         self.name = name
@@ -53,99 +77,103 @@ class Session:
 
     @classmethod
     def from_dict(cls, obj, name):
-        return cls(name=name, title=obj['title'], questions=[Question.from_dict(x) for x in obj['questions']])
+        return cls(
+            name=name,
+            title=obj["title"],
+            questions=[Question.from_dict(x) for x in obj["questions"]],
+        )
 
 
 class Question:
     def __init__(self, *args, **kwargs):
         self.type = None
-        self.prompt = kwargs.get('prompt', None)
-        self.image = kwargs.get('image', None)
-        self.answers = kwargs.get('answers', [])
+        self.prompt = kwargs.get("prompt", None)
+        self.image = kwargs.get("image", None)
+        self.answers = kwargs.get("answers", [])
 
         self.revealed = False
 
     @staticmethod
     def from_dict(obj):
         question_types = {
-            'landing': LandingQuestion,
-            'mcq': MCQQuestion,
-            'draw': DrawQuestion,
-            'random': RandomQuestion,
-            'type': TypeQuestion,
-            'speed': SpeedQuestion,
-            'speed_review': SpeedReviewQuestion,
+            "landing": LandingQuestion,
+            "mcq": MCQQuestion,
+            "draw": DrawQuestion,
+            "random": RandomQuestion,
+            "type": TypeQuestion,
+            "speed": SpeedQuestion,
+            "speed_review": SpeedReviewQuestion,
         }
-        question = question_types[obj['type']]()
+        question = question_types[obj["type"]]()
         question.load_dict(obj)
         return question
 
     def load_dict(self, obj):
-        self.type = obj['type']
+        self.type = obj["type"]
 
-        self.prompt = obj.get('prompt', self.prompt)
-        self.image = obj.get('image', self.image)
-        self.answers = obj.get('answers', self.answers)
+        self.prompt = obj.get("prompt", self.prompt)
+        self.image = obj.get("image", self.image)
+        self.answers = obj.get("answers", self.answers)
 
 
 class LandingQuestion(Question):
     # Not actually a question
-    template = 'session_landing.html'
-    template_admin = 'session_landing_admin.html'
+    template = "session_landing.html"
+    template_admin = "session_landing_admin.html"
 
 
 class MCQQuestion(Question):
-    template = 'question_mcq.html'
-    template_admin = 'question_mcq_admin.html'
+    template = "question_mcq.html"
+    template_admin = "question_mcq_admin.html"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.maximum = kwargs.get('maximum', 1)
+        self.maximum = kwargs.get("maximum", 1)
 
     def load_dict(self, obj):
         super().load_dict(obj)
 
-        self.maximum = obj.get('maximum', self.maximum)
+        self.maximum = obj.get("maximum", self.maximum)
 
 
 class DrawQuestion(Question):
-    template = 'question_draw.html'
-    template_admin = 'question_draw_admin.html'
+    template = "question_draw.html"
+    template_admin = "question_draw_admin.html"
 
 
 class RandomQuestion(Question):
-    template = 'question_random.html'
-    template_admin = 'question_random_admin.html'
+    template = "question_random.html"
+    template_admin = "question_random_admin.html"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.answerer = kwargs.get('answerer', None)
+        self.answerer = kwargs.get("answerer", None)
 
 
 class TypeQuestion(Question):
-    template = 'question_type.html'
-    template_admin = 'question_type_admin.html'
+    template = "question_type.html"
+    template_admin = "question_type_admin.html"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.answer_form = kwargs.get('answer_form', '$1')
-        self.answer_type = kwargs.get('answer_type', None)
-        self.answer_range = kwargs.get('answer_range', None)
+        self.answer_form = kwargs.get("answer_form", "$1")
+        self.answer_type = kwargs.get("answer_type", None)
+        self.answer_range = kwargs.get("answer_range", None)
 
     def load_dict(self, obj):
         super().load_dict(obj)
 
-        self.answer_form = obj.get('answer_form', self.answer_form)
-        self.answer_type = obj.get('answer_type', self.answer_type)
-        self.answer_range = obj.get('answer_range', self.answer_range)
+        self.answer_form = obj.get("answer_form", self.answer_form)
+        self.answer_type = obj.get("answer_type", self.answer_type)
+        self.answer_range = obj.get("answer_range", self.answer_range)
 
 
 class SpeedQuestion(MCQQuestion):
-    template = 'question_speed.html'
-    template_admin = 'question_speed_admin.html'
+    template = "question_speed.html"
+    template_admin = "question_speed_admin.html"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -174,8 +202,8 @@ class SpeedQuestionTimerThread(threading.Thread):
 
 
 class SpeedReviewQuestion(Question):
-    template = 'question_speed_review.html'
-    template_admin = 'question_speed_review_admin.html'
+    template = "question_speed_review.html"
+    template_admin = "question_speed_review_admin.html"
 
 
 class User:
@@ -194,16 +222,24 @@ class Admin(User):
 
 
 def responses_for_question(session, question_num):
-    return len([user for _, user in users.items() if user.session == session and question_num in user.answers])
+    return len(
+        [
+            user
+            for _, user in users.items()
+            if user.session == session and question_num in user.answers
+        ]
+    )
 
 
 def unique_answers_for_question(session, question_num):
     answers = {}
     for _, user in users.items():
-        if user.session == session \
-                and question_num in user.answers \
-                and user.answers[question_num] != '' \
-                and user.answers[question_num] is not None:
+        if (
+            user.session == session
+            and question_num in user.answers
+            and user.answers[question_num] != ""
+            and user.answers[question_num] is not None
+        ):
             if user.answers[question_num] in answers:
                 answers[user.answers[question_num]].append(user)
             else:
