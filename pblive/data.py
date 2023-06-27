@@ -195,7 +195,7 @@ class SpeedQuestionTimerThread(threading.Thread):
         self._stop.set()
 
     def run(self):
-        time.sleep(5)
+        time.sleep(4)
         if self._stop.isSet():
             return
         self.do_goto_question(self.session, self.next_question)
