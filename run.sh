@@ -7,4 +7,4 @@ if [ -z "$1" ] ; then
 fi
 
 docker build -t pblive .
-docker run --rm -e "QUIZ_SERVER_URL="$1 -p 5000:5000 pblive
+docker run --rm -e "QUIZ_SERVER_URL="$1 -p 5005:5000 pblive
