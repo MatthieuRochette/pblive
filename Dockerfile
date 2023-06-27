@@ -1,4 +1,4 @@
-FROM python:3.11.2-alpine3.17
+FROM python:3.8-alpine
 
 RUN /usr/sbin/adduser -g python -D python
 
@@ -19,4 +19,5 @@ CMD ["-m", "pblive"]
 
 LABEL org.opencontainers.image.source="https://github.com/williamjacksn/pblive"
 
+COPY --chown=python:python ./data /home/python/pblive/data
 COPY --chown=python:python pblive /home/python/pblive/pblive
