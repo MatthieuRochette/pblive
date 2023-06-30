@@ -50,7 +50,7 @@ questions:
 
   - type: mcq
     prompt: Quel était le nom du premier chat de Marc ? (image non contractuelle)
-    answers: [Putzie, Bouboule, Henri, Mozart]
+    answers: [Putzie, Bouboule, Lucky, Mozart]
     image: chat.png
 
   - type: type
