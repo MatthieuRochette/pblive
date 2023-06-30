@@ -1,0 +1,95 @@
+title: Anniversaire Marc
+questions:
+  - type: landing
+
+  # Intro:
+  - type: mcq
+    prompt: Quel âge a Marc aujourd'hui ? (image non contractuelle)
+    answers: [30, 40, 50, 60]
+    image: age.jpg
+
+  - type: mcq
+    prompt: Quelle est la marque de voiture préférée de Marc ?
+    answers: [Ferrari, Renault, Tesla, Porsche]
+    image: logos_voitures.jpg
+
+  - type: mcq
+    prompt: Parmi ces propositions, quel plat préfère Marc ?
+    answers:
+      [Steak/frites, Spaghetti alle vongole, Rognons de porc, Poulet frit]
+
+  # Principal
+  - type: type
+    prompt: "Citez un mot ou expression (positive ou négative) que Marc utilise beaucoup trop :"
+
+  - type: draw
+    prompt: Reliez Marc à Maria le plus vite possible !
+    image: labyrinthe.jpg
+
+  - type: type
+    prompt: Quelle a été la plus longue rando de Marc ? Et avec qui ?
+
+  - type: type
+    prompt: "Une personne par groupe vient devant pour une battle d'impro ! Entrez son prénom ci-dessous pour le comptage des points après."
+    image: improv.webp
+
+  - type: mcq
+    prompt: "Où se trouve la tâche de naissance de Marc ?"
+    answers: [La nuque, La fesse, Le pied, Le téton]
+
+  - type: type
+    prompt: "Quel est le groupe de musique préféré de Marc ? (image non contractuelle)"
+    image: groupe.jpg
+
+  - type: type
+    prompt: Quelle a été la première voiture de Marc ? (image non contractuelle)
+    image: voiture.png
+
+  - type: type
+    prompt: Comment Marc et Maria se sont-ils rencontrés ?
+
+  - type: mcq
+    prompt: Quel était le nom du premier chat de Marc ? (image non contractuelle)
+    answers: [Putzie, Bouboule, Henri, Mozart]
+    image: chat.png
+
+  - type: type
+    prompt: Qu'est-ce que Marc a fait d'insolite par la fenêtre de la voiture sur l'autoroute quand il était enfant ?
+
+  # SPEED !
+  - type: speed
+    prompt: Vite ! 2 + 2 font ?
+    answers: [1, 4, 2]
+
+  - type: speed
+    prompt: Vtie ! De qluele cuuleor est le cvehal blnac d'Herni 4 ?
+    answers: [Blnac, Blanc, Banlc]
+
+  - type: speed
+    prompt: Vite ! 2 * 5 - 2 / 2 font ?
+    answers: [9, 4, 3]
+
+  - type: speed
+    prompt: Vite ! Quel pays est-ce ?
+    answers: [Russie, Hollande, France]
+    image: drapeau.png
+
+  - type: speed_review
+
+  # Conclusion
+  - type: type
+    prompt: "Un message (anonyme) que vous voulez passer à Marc ?"
+
+  - type: draw
+    prompt: Souvenez-vous de la marque de voiture préférée de Marc et dessinez le contour de son logo
+    image: fond-blanc.png
+
+  - type: mcq
+    prompt: Quel cadeau Marc préférerait pour son anniversaire ?
+    answers:
+      [
+        Une armoire IKEA,
+        Une carte d'anniversaire un peu ringarde,
+        Un stage de pilotage sur circuit dans sa marque de voiture préférée,
+        Une lampe frontale Décathlon à 5€,
+      ]
