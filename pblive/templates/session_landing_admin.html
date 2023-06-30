@@ -31,7 +31,7 @@ along with this program. If not, see
 
 <script src="{{ url_for('static', filename='vendor/qrcode-js/qrcode.min.js') }}"></script>
 <script>
-    new QRCode(document.getElementById('qrcode'), 'http://{{ data.server_ip }}:5000/session/{{ session.name }}');
+    new QRCode(document.getElementById('qrcode'), 'http://{{ data.server_ip }}/session/{{ session.name }}');
 </script>
 {% endblock base %}
 
