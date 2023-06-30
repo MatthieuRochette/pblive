@@ -5,7 +5,7 @@ questions:
   # Intro:
   - type: mcq
     prompt: Quel âge a Marc aujourd'hui ? (image non contractuelle)
-    answers: [30, 40, 50, 60]
+    answers: ["30", "40", "50", "60"]
     image: age.jpg
 
   - type: mcq
@@ -59,7 +59,7 @@ questions:
   # SPEED !
   - type: speed
     prompt: Vite ! 2 + 2 font ?
-    answers: [1, 4, 2]
+    answers: ["1", "4", "2"]
 
   - type: speed
     prompt: Vtie ! De qluele cuuleor est le cvehal blnac d'Herni 4 ?
@@ -67,7 +67,7 @@ questions:
 
   - type: speed
     prompt: Vite ! 2 * 5 - 2 / 2 font ?
-    answers: [9, 4, 3]
+    answers: ["9", "4", "3"]
 
   - type: speed
     prompt: Vite ! Quel pays est-ce ?
