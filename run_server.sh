@@ -1,4 +1,4 @@
-
+#!/bin/bash
 echo "URL of deployment is:" $1
 
 if [ -z "$1" ] ; then
